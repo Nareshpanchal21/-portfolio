@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naresh Panchal Portfolio</title>
+    <style>
+        :root {
+            --bg-color-light: #000;
+            --text-color-light: #fff;
+            --primary-color: #007bff;
+            --glow-color: rgba(0, 123, 255, 0.8);
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: black;
+        }
+
+        .dark-mode-toggle {
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            border: none;
+            background: none;
+            transition: color 0.3s;
+        }
+
+        .dark-mode-toggle:hover {
+            color: black;
+        }
+
+        section {
+            display: none;
+            padding: 40px;
+            text-align: center;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* About Section */
+        #about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--glow-color);
+            margin: 20px auto;
+        }
+        /* Contact Section */
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 400px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+
+        #contact input, #contact textarea, #contact button {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            font-size: 16px;
+            background: #000;
+            color: white;
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        #contact button {
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #contact button:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar a {
+                font-size: 16px;
+            }
+
+            #about img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        .about-section {
+    display: flex;
+    justify-content: center;
+    gap: 80px; /* Increased space between image and text */
+    padding: 40px;
+}
+
+.about-img img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+}
+
+.about-text {
+    text-align: left;
+}
+
+.about-text h1 {
+    font-size: 36px;
+    margin: 0;
+    color: #007bff;
+}
+
+.about-text h2 {
+    font-size: 28px;
+    margin: 10px 0; 
+}
+
+.about-text p {
+    font-size: 16px; 
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px; /* Adjusted spacing for smaller screens */
+    }
+
+    .about-img img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .about-text h1 {
+        font-size: 30px;
+    }
+
+    .about-text h2 {
+        font-size: 24px;
+    }
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.icon img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 123, 255, 1);
+}
+
+@media (max-width: 768px) {
+    .social-icons {
+        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .icon img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+.skill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.skill-item {
+    background-color: #222;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 123, 255, 1);
+    background-color: #007bff;
+    color: #fff;
+}
+
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.8));
+}
+
+@media (max-width: 768px) {
+    .skill-item {
+        font-size: 16px;
+        padding: 10px 20px;
+        flex-direction: row;
+    }
+
+    .skill-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.project-item {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 123, 255, 1);
+    background-color: #007bff;
+}
+
+.project-title {
+    font-size: 20px;
+    margin: 0;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.project-info {
+    font-size: 14px;
+    color: #ccc;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.project-item:hover .project-info {
+    opacity: 1;
+    transform: translateY(0);
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .project-item {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .project-title {
+        font-size: 18px;
+    }
+
+    .project-info {
+        font-size: 12px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>Naresh Panchal</div>
+        <div>
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('about')">About</a>
+            <a href="#" onclick="showSection('skills')">Skills</a>
+            <a href="#" onclick="showSection('projects')">Projects</a>
+            <a href="#" onclick="showSection('contact')">Contact</a>
+        </div>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    </div>
+
+    <section id="home" class="active">
+        <div class="about-section">
+            <div class="about-img">
+                <img src="https://t3.ftcdn.net/jpg/06/01/17/18/360_F_601171827_GwbDHEuhisbGFXRfIpXFhtf7wAvsbLut.jpg" alt="Naresh Panchal">
+            </div>
+            <div class="about-text">
+                <h1>I am Naresh Panchal</h1>
+                <h2>Frontend Developer</h2>
+                <p>
+                    Passionate about creating dynamic and responsive web applications.<br>
+                    Skilled in HTML, CSS, JavaScript, and modern frontend technologies.<br>
+                    Dedicated to delivering user-friendly and visually appealing designs.<br>
+                    Experienced in building portfolio and commercial projects.<br>
+                    Always eager to learn and embrace new challenges.
+                </p>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank" class="icon instagram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="icon facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" class="icon linkedin">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h1>About Me</h1>
+        <img src="https://t3.ftcdn.net/jpg/06/01/17/18/360_F_601171827_GwbDHEuhisbGFXRfIpXFhtf7wAvsbLut.jpg" alt="Naresh Panchal">
+        <p>I am Naresh Panchal, a BCA second-year student at Swami Ramanand Teerth Marathwada University (SRTMU).<br>passionate about web development and programming.</p>
+    </section>
+
+    <section id="skills">
+        <h1>My Skills</h1>
+        <div class="skill-container">
+            <div class="skill-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML" class="skill-icon">
+                <span>HTML</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS" class="skill-icon">
+                <span>CSS</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" class="skill-icon">
+                <span>JavaScript</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP" class="skill-icon">
+                <span>PHP</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java" class="skill-icon">
+                <span>Java</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" class="skill-icon">
+                <span>Python</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h1>My Projects</h1>
+        <div class="project-container">
+            <div class="project-item">
+                <h3 class="project-title">Books Website</h3>
+                <div class="project-info">A website to browse, search, and purchase books online. Includes user authentication and a shopping cart feature.</div>
+            </div>
+            <div class="project-item">
+                <h3 class="project-title">Portfolio</h3>
+                <div class="project-info">A personal portfolio showcasing skills, projects, and contact information. Designed with a responsive layout.</div>
+            </div>
+            <div class="project-item">
+                <h3 class="project-title">Event Management Website</h3>
+                <div class="project-info">A platform for managing and booking events. Features include user registration and event scheduling.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h1>Contact Me</h1>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const toggleButton = document.querySelector('.dark-mode-toggle');
+            const isDarkMode = body.classList.toggle('dark-mode');
+
+            body.style.backgroundColor = isDarkMode ? "#000" : "#fff";
+            body.style.color = isDarkMode ? "#fff" : "#000";
+
+            toggleButton.textContent = isDarkMode ? "☀️" : "🌙";
+        }
+
+        function showSection(id) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
