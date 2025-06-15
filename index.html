@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Naresh Portfolio</title>
+ <style>
+ :root {
+  --dark-bg: #0d0d0d;
+  --dark-text: #ffffff;
+  --light-bg: #f2f2f2;
+  --light-text: #0d0d0d;
+  --primary-glow: #00ffcc;
+  --nav-glow: #00ffee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  transition: all 0.4s ease;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 15px var(--nav-glow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  animation: slideDown 0.8s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-glow);
+  text-shadow: 0 0 10px var(--primary-glow);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: var(--primary-glow);
+  color: #000;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.toggle-btn {
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-icon div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: background-color 0.3s;
+}
+
+/* Light Mode for mobile icon */
+.light-mode .menu-icon div {
+  background-color: black;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 200px;
+  height: auto;
+  background-color: #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px;
+  transition: right 0.3s ease;
+  z-index: 998;
+}
+
+.mobile-nav a {
+  margin-bottom: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+}
+
+section {
+  padding: 50px 30px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  transition: all 0.4s ease;
+  overflow-x: hidden;
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* HOME Section */
+#home {
+  min-height: 100vh;
+  padding-top: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-bg);
+}
+
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.home-img {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 30px var(--primary-glow);
+}
+
+.home-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.glow-lines::before,
+.glow-lines::after {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--nav-glow),
+    var(--nav-glow) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  animation: rotate 4s linear infinite;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.home-content {
+  max-width: 500px;
+  color: white;
+  text-align: left;
+}
+
+.home-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: var(--nav-glow);
+  text-shadow: 0 0 10px var(--nav-glow);
+}
+
+.home-content h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  height: 30px;
+}
+
+.home-content p {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.social-icons a {
+  font-size: 22px;
+  margin-right: 15px;
+  color: var(--nav-glow);
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: white;
+  text-shadow: 0 0 10px var(--nav-glow);
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+  }
+
+  .home-content {
+    text-align: center;
+  }
+}
+
+/* LIGHT MODE ======================= */
+
+.light-mode {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+/* Navbar */
+.light-mode header {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.light-mode .logo {
+  color: #000;
+  text-shadow: none;
+}
+
+.light-mode .nav-links a {
+  color: #000;
+}
+
+.light-mode .nav-links a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Mobile nav */
+.light-mode .mobile-nav {
+  background-color: #eee;
+}
+
+.light-mode .mobile-nav a {
+  color: #000;
+}
+
+/* Sections */
+.light-mode section,
+.light-mode #home {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+/* Home content */
+.light-mode .home-content h1,
+.light-mode .home-content h2,
+.light-mode .home-content p {
+  color: #000;
+  text-shadow: none;
+}
+
+/* Image glow and background lines dimmed */
+.light-mode .home-img {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .glow-lines::before,
+.light-mode .glow-lines::after {
+  opacity: 0.05;
+}
+
+/* Social icons */
+.light-mode .social-icons a {
+  color: #000;
+}
+
+.light-mode .social-icons a:hover {
+  color: #222;
+  text-shadow: none;
+}
+
+/* Typing text */
+.light-mode .typing {
+  color: #111;
+}
+
+#about {
+  padding-top: 100px;
+  background-color: var(--dark-bg);
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px;
+}
+
+.about-left {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.about-name {
+  font-size: 32px;
+  color: var(--primary-glow);
+  text-shadow: 0 0 15px var(--primary-glow);
+  margin-bottom: 20px;
+}
+
+.about-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
+  box-shadow: 0 0 25px var(--primary-glow);
+}
+
+.about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-right {
+  flex: 1 1 400px;
+  color: var(--dark-text);
+}
+
+.about-right h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--primary-glow);
+}
+
+.about-right p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Light mode adjustments */
+.light-mode #about {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.light-mode .about-name,
+.light-mode .about-right h2 {
+  color: #000;
+  text-shadow: none;
+}
+
+.light-mode .about-right p {
+  color: #111;
+}
+
+.light-mode .about-img {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .about-left, .about-right {
+    flex: 1 1 100%;
+    padding: 10px 15px;
+  }
+
+  .about-name {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .about-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .about-right h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .about-right p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .home-img{
+    height: 200px;
+    width: auto;
+  }
+}
+
+ /* Section style */
+#skills {
+  padding: 80px 20px;
+  background-color: #0d0d0d;
+  color: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Skills bar style */
+.skills-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.skill {
+  margin-bottom: 30px;
+}
+
+.skill label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.bar {
+  background-color: #333;
+  height: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%; /* ✅ full responsive */
+  max-width: 600px;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--primary-glow);
+  width: 0%;
+  transition: width 2s ease;
+  box-shadow: 0 0 10px var(--primary-glow);
+  border-radius: 10px;
+}
+
+/* Light mode */
+.light-mode #skills {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.light-mode .bar {
+  background-color: #ccc;
+}
+
+.light-mode .progress {
+  background-color: #222;
+  box-shadow: none;
+}
+
+.light-mode .section-title {
+  text-shadow: none;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .skill label {
+    font-size: 16px;
+  }
+}
+
+#projects {
+  padding: 80px 30px;
+  background: linear-gradient(135deg, #111, #1a1a1a);
+  color: white;
+  text-align: center;
+}
+
+.projects-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  width: 300px;
+  background: linear-gradient(135deg, #222, #333);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00ffee;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.project-card h3 {
+  color: #00ffee;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.project-card p {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Water Wave at bottom */
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 25px;
+  width: 100%;
+  background: url('https://i.imgur.com/AXoFxan.png') repeat-x;
+  background-size: contain;
+  animation: waveMove 4s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes waveMove {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1000px; }
+}
+
+/* Animation scroll reveal */
+.project-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 90%;
+  }
+}
+
+/* Light Mode overrides */
+.light-mode #projects {
+  background: #f0f0f0;
+  color: #000;
+}
+
+.light-mode .project-card {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.light-mode .project-card h3 {
+  color: #222;
+}
+
+.light-mode .project-card p {
+  color: #555;
+}
+
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Water wave div */
+.wave {
+   position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* ✅ Aadhe div tak */
+  background-color: #00ffee;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+@keyframes gentleWave {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+#contact {
+  padding: 100px 20px;
+  background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-heading {
+  font-size: 36px;
+  color: #00ffee;
+  text-shadow: 0 0 10px #00ffee;
+  margin-bottom: 10px;
+}
+
+.contact-subtext {
+  color: #ccc;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  background: transparent;
+  border: 1px solid #00ffee;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 15px #00ffee;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: #00ffee;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00ffee;
+}
+
+.contact-form button:hover {
+  background-color: #00ccaa;
+  box-shadow: 0 0 20px #00ffee;
+  transform: scale(1.05);
+}
+
+/* Light mode tweaks */
+.light-mode #contact {
+  background: #f9f9f9;
+  color: #000;
+}
+
+.light-mode .contact-heading {
+  color: #000;
+  text-shadow: none;
+}
+
+.light-mode .contact-subtext {
+  color: #333;
+}
+
+.light-mode .contact-form input,
+.light-mode .contact-form textarea {
+  border-color: #333;
+  color: #000;
+}
+
+.light-mode .contact-form input:focus,
+.light-mode .contact-form textarea:focus {
+  box-shadow: 0 0 10px #999;
+}
+
+.light-mode .contact-form button {
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 0 10px #333;
+}
+
+.footer {
+  background: #0d0d0d;
+  padding: 30px 15px 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 -2px 10px #00ffee77;
+}
+
+.footer-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.footer-logo {
+  font-size: 22px;
+  color: #00ffee;
+  text-shadow: 0 0 8px #00ffee;
+  margin-bottom: 6px;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.footer-icons a {
+  margin: 0 8px;
+  font-size: 20px;
+  color: #00ffee;
+  transition: 0.3s;
+}
+
+.footer-icons a:hover {
+  color: white;
+  text-shadow: 0 0 10px #00ffee;
+}
+
+.footer-bottom {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #888;
+}
+
+/* Light Mode Compact */
+.light-mode .footer {
+  background: #f4f4f4;
+  color: #000;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .footer-logo {
+  color: #000;
+  text-shadow: none;
+}
+
+.light-mode .footer-icons a {
+  color: #000;
+}
+
+.light-mode .footer-icons a:hover {
+  color: #333;
+  text-shadow: none;
+}
+
+.balloon-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Back mein */
+  pointer-events: none; /* User interaction block na ho */
+}
+
+.balloon {
+  position: absolute;
+  width: 40px;
+  height: 55px;
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: 0 0 15px #00ffee;
+  opacity: 0.7;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: #00ffee;
+  transform: translateX(-50%);
+}
+
+/* 🎈 Balloon Colors (Matching Theme) */
+.b1 {
+  top: 20px;
+  left: 30px;
+  background: #00ffee;
+}
+.b2 {
+  top: 100px;
+  right: 40px;
+  background: #00ffcc;
+}
+.b3 {
+  bottom: 80px;
+  left: 50px;
+  background: #33ffcc;
+}
+.b4 {
+  bottom: 40px;
+  right: 80px;
+  background: #66ffff;
+}
+.b5 {
+  top: 50%;
+  left: 45%;
+  background: #00e6e6;
+}
+
+#welcomePopup {
+  /* already diya hoga ye */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0d0d0d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: #00ffee;
+}
+
+#welcomePopup #typeText {
+  font-size: 28px;
+  max-width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ffee;
+}
+
+
+.popup-img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px #00ffee);
+}
+
+
+/* Animations */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 280px }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@media (max-width: 768px) {
+  #welcomePopup #typeText {
+    font-size: 20px;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #welcomePopup #typeText {
+    font-size: 16px;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .light-mode .home-img {
+    box-shadow: 0 0 50px rgba(0, 255, 238, 0.9);
+    border: 3px solid rgba(0, 255, 238, 1);
+  }
+   section{
+    padding: 50px 30px;
+   }
+
+   p{
+    position: relative;
+    margin-top:25px;
+   }
+
+    .light-mode .about-img {
+    box-shadow: 0 0 40px rgba(0, 255, 200, 0.9);
+    border: 3px solid rgba(0, 255, 200, 0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 40px 20px; /* pehle 100px tha, ab kam */
+  }
+}
+
+.light-mode .footer-tagline,
+.light-mode .footer-bottom {
+  color: #111;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile nav link glowing border on active/click */
+.mobile-nav a:active,
+.mobile-nav a:focus,
+.mobile-nav a:hover {
+  border-bottom: 2px solid #00ffee;
+  box-shadow: 0 2px 10px #00ffee;
+  padding-bottom: 5px;
+}
+
+</style>
+
+</head>
+<body>
+ <!-- <div class="welcome-popup" id="welcomePopup">
+  <img src="https://cdn-icons-png.flaticon.com/512/1053/1053244.png" alt="dev-img" class="popup-img">
+  <h2 class="type-text" id="typeText"></h2>
+</div>
+<-->
+  <header>
+    <div class="logo">Naresh Panchal</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+       <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="toggle-btn" onclick="toggleMode()">Light</button>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileMenu">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#skills" onclick="toggleMenu()">Skills</a>
+    <a href="#projects" onclick="toggleMenu()">Projects</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <!-- Landing Sections -->
+  <!-- Font Awesome CDN (head ke andar add karo if not already) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- HOME SECTION -->
+<section id="home">
+  <div class="home-container">
+    <div class="home-img">
+      
+      <img src="https://media.licdn.com/dms/image/v2/D4E35AQH36eyGCqKKCQ/profile-framedphoto-shrink_400_400/B4EZXBg973GwAc-/0/1742708400164?e=1750586400&v=beta&t=-1WecjWCrBniflcMjQUR4gV7BVI-nTeTlb0Rv2_abyg" alt="Naresh" />
+    </div>
+
+    <div class="home-content">
+      <h1>Hi, I'm Naresh Panchal</h1>
+      <h2><span class="typing"></span></h2>
+      <p>I'm passionate about crafting beautiful, responsive websites.</p>
+      <p>I love working with HTML, CSS, JS & React to bring ideas to life.</p>
+      
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <section id="about"  class="fade-in">
+  <div class="about-container">
+    <div class="about-left">
+        <h1 class="about-name">Naresh Panchal</h1>
+      <div class="about-img glow-img">
+        <img src="https://media.licdn.com/dms/image/v2/D4E35AQH36eyGCqKKCQ/profile-framedphoto-shrink_400_400/B4EZXBg973GwAc-/0/1742708400164?e=1750586400&v=beta&t=-1WecjWCrBniflcMjQUR4gV7BVI-nTeTlb0Rv2_abyg" alt="Naresh Panchal">
+      </div>
+    </div>
+    <div class="about-right">
+      <h2>About Me</h2>
+      <p>I'm a passionate and creative BCA student from SRTMU, aiming to become a skilled web developer. I love building interactive and glowing web designs using HTML, CSS, and JavaScript. I believe in learning by doing — every project I create is part of my personal journey.</p>
+      <p><strong>Education:</strong> BCA (2nd Year), Swami Ramanand Teerth Marathwada University</p>
+      <p><strong>Skills:</strong> HTML, CSS, JavaScript, Responsive Design</p>
+      <p><strong>Location:</strong> Borkini village, Taluka Selu, District Parbhani</p>
+      <p><strong>Personality:</strong> Honest, Dedicated, and always ready to learn</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="fade-in">
+  <h1 class="section-title">My Skills</h1>
+  <div class="skills-container">
+    <div class="skill">
+      <label>HTML</label>
+      <div class="bar"><div class="progress" data-width="95%"></div></div>
+    </div>
+    <div class="skill">
+      <label>CSS</label>
+      <div class="bar"><div class="progress" data-width="90%"></div></div>
+    </div>
+    <div class="skill">
+      <label>JavaScript</label>
+      <div class="bar"><div class="progress" data-width="85%"></div></div>
+    </div>
+    <div class="skill">
+      <label>React</label>
+      <div class="bar"><div class="progress" data-width="80%"></div></div>
+    </div>
+    <div class="skill">
+      <label>TailwindCSS</label>
+      <div class="bar"><div class="progress" data-width="75%"></div></div>
+    </div>
+    <div class="skill">
+      <label>Python</label>
+      <div class="bar"><div class="progress" data-width="70%"></div></div>
+    </div>
+    <div class="skill">
+      <label>Java</label>
+      <div class="bar"><div class="progress" data-width="65%"></div></div>
+    </div>
+  </div>
+</section>
+
+  <section id="projects">
+  <h2 class="section-title">My Projects</h2>
+  <div class="projects-container">
+    
+    <div class="project-card">
+      <h3>Personal Portfolio</h3>
+      <p>A glowing portfolio with dark/light mode and animations.</p>
+      <div class="wave"></div>
+    </div>
+
+    <div class="project-card">
+      <h3>Quiz Website</h3>
+      <p>Interactive quiz app with timer and score system.</p>
+      <div class="wave"></div>
+    </div>
+
+    <div class="project-card">
+      <h3>E-Commerce UI</h3>
+      <p>Modern shopping UI with filters and responsive design.</p>
+      <div class="wave"></div>
+    </div>
+
+  </div>
+</section>
+
+ <section id="contact">
+  <h2 class="contact-heading">Let's Connect</h2>
+  <p class="contact-subtext">Feel free to drop me a message. I’ll respond as soon as possible!</p>
+
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message 🚀</button>
+  </form>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <h2 class="footer-logo">Naresh Panchal</h2>
+    <p class="footer-tagline">Crafting the web, one pixel at a time 🚀</p>
+    <div class="footer-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p class="footer-bottom">© 2025 Naresh Panchal. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="balloon-container">
+  <div class="balloon b1"></div>
+  <div class="balloon b2"></div>
+  <div class="balloon b3"></div>
+  <div class="balloon b4"></div>
+  <div class="balloon b5"></div>
+</div>
+
+
+
+</body>
+  <script>
+    let isLight = false;
+
+    function toggleMode() {
+      isLight = !isLight;
+      document.body.classList.toggle("light-mode");
+      document.querySelector('.toggle-btn').textContent = isLight ? "Dark" : "Light";
+    }
+
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("active");
+    }
+
+  const typing = document.querySelector(".typing");
+  const roles = ["I am a Web Developer", "I am a Frontend Developer"];
+  let roleIndex = 0;
+  let charIndex = 0;
+  let typingDelay = 100;
+  let erasingDelay = 60;
+  let newTextDelay = 2000;
+
+  function type() {
+    if (charIndex < roles[roleIndex].length) {
+      typing.textContent += roles[roleIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, typingDelay);
+    } else {
+      setTimeout(erase, newTextDelay);
+    }
+  }
+
+  function erase() {
+    if (charIndex > 0) {
+      typing.textContent = roles[roleIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase, erasingDelay);
+    } else {
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(type, typingDelay);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    if (roles.length) setTimeout(type, 1000);
+  });
+
+  window.addEventListener('scroll', () => {
+    const about = document.querySelector('#about');
+    const rect = about.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      about.classList.add('show');
+    }
+  });
+
+   let skillAnimated = false;
+
+  window.addEventListener("scroll", () => {
+    const skillsSection = document.getElementById("skills");
+    const rect = skillsSection.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight - 100 && !skillAnimated) {
+      document.querySelectorAll(".progress").forEach(bar => {
+        const target = bar.getAttribute("data-width");
+        bar.style.width = target;
+      });
+      skillsSection.classList.add("visible");
+      skillAnimated = true;
+    }
+  });
+
+ 
+// Show cards on scroll
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.project-card').forEach(card => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      card.classList.add('show');
+    }
+  });
+});
+
+  const text = "Welcome to my Portfolio";
+  const typeTextElement = document.getElementById("typeText");
+  let index = 0;
+
+  function typeWriter() {
+    if (index < text.length) {
+      typeTextElement.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 100); // typing speed
+    }
+  }
+
+  window.addEventListener("load", () => {
+    typeWriter();
+
+    // Text length × 100ms + little buffer
+    setTimeout(() => {
+      document.getElementById("welcomePopup").style.display = "none";
+    }, 100 * text.length + 1000); // 100ms per letter + 1s buffer
+  });
+
+  document.querySelectorAll('.mobile-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelectorAll('.mobile-nav a').forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+
+  </script>
+</body>
+</html>
